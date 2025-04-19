@@ -1,22 +1,19 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Horsie</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <h1>Ankit teri Daddi pel dunga !</h1>
-</body>
+   <head>
+  <link rel="icon" type="image/png" href="NPTEL.png">
+   </head>
+   <body>
+     <center style="position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);">
+       <a id="downloadLink"
+          target="_blank"
+          style="color:white; background-color:#3070bf;padding:10px 20px;border-radius:8px;text-decoration:none;display: inline-block;width: 156px;">
+          Course Certificate
+       </a><br>
+     </center>
+
+     <script>
+       const user = new URLSearchParams(window.location.search).get("user");
+       document.getElementById("downloadLink").href = `certificates/${user}.pdf`;
+     </script>
+   </body>
 </html>

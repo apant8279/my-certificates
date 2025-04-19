@@ -1,19 +1,79 @@
-<html>
-   <head>
-  <link rel="icon" type="image/png" href="NPTEL.png">
-   </head>
-   <body>
-     <center style="position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);">
-       <a id="downloadLink"
-          target="_blank"
-          style="color:white; background-color:#3070bf;padding:10px 20px;border-radius:8px;text-decoration:none;display: inline-block;width: 156px;">
-          Course Certificate
-       </a><br>
-     </center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Website in Development</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-     <script>
-       const user = new URLSearchParams(window.location.search).get("user");
-       document.getElementById("downloadLink").href = `certificates/${user}.pdf`;
-     </script>
-   </body>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #ffcc00;
+      color: #1e3c72;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e6b800;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚧 Website Under Development</h1>
+    <p>We're working hard to bring something awesome. Stay tuned and check back soon!</p>
+    <a href="#" class="btn">Go Back</a>
+  </div>
+</body>
 </html>

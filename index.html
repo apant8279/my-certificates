@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Website in Development</title>
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       height: 100vh;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: #ffffff;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 20px;
+      color: #fff;
     }
 
-    .container {
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.1);
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
       padding: 40px;
       border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
       color: #ffcc00;
     }
 
     p {
       font-size: 1.2rem;
-      margin-bottom: 30px;
+      margin: 15px 0;
+    }
+
+    .countdown {
+      font-size: 1.5rem;
+      margin: 25px 0;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: inline-block;
     }
 
     .btn {
@@ -51,10 +57,36 @@
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
+      margin-top: 20px;
       transition: background-color 0.3s ease;
     }
 
     .btn:hover {
+      background-color: #e6b800;
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="submit"] {
+      background-color: #ffcc00;
+      color: #1e3c72;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
       background-color: #e6b800;
     }
 
@@ -63,17 +95,56 @@
         font-size: 2rem;
       }
 
-      p {
-        font-size: 1rem;
+      .countdown {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🚧 Website Under Development</h1>
-    <p>We're working hard to bring something awesome. Stay tuned and check back soon!</p>
+  <div class="overlay">
+    <h1>🚧 Abhishek Pan</h1>
+    <p>Our awesome website is currently under construction.</p>
+
+    <div class="countdown" id="countdown">
+      Launching soon...
+    </div>
+
     <a href="#" class="btn">Go Back</a>
+
+    <form action="#" method="post">
+      <p>Want us to notify you?</p>
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <textarea name="message" placeholder="Leave a message (optional)" rows="3"></textarea>
+      <input type="submit" value="Notify Me" />
+    </form>
   </div>
+
+  <script>
+    // Set the date we're counting down to
+    const launchDate = new Date();
+    launchDate.setDate(launchDate.getDate() + 10); // 10 days from now
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "We're live!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `Launching in: <strong>${days} Days : ${hours} Hours : ${minutes} Minutes : ${seconds} Seconds</strong>`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>

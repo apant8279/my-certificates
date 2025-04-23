@@ -12,7 +12,7 @@
      </center>
 
      <script>
-  const user = new URLSearchParams(window.location.search).get("NPTEL24CS90S72420054420111875");
+  const user = new URLSearchParams(window.location.search).get("user");
   if (user) {
     document.getElementById("downloadLink").href = `noc/Ecertificate/${user}.pdf`;
   } else {

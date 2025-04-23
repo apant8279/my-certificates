@@ -12,9 +12,13 @@
      </center>
 
      <script>
-       const user = new URLSearchParams(window.location.search).get("NPTEL24CS90S72420054420111875");
-       document.getElementById("downloadLink").href = `noc/Ecertificate/${user}.pdf`;
-     </script>
+  const user = new URLSearchParams(window.location.search).get("user");
+  if (user) {
+    document.getElementById("downloadLink").href = `noc/Ecertificate/${user}.pdf`;
+  } else {
+    document.getElementById("downloadLink").innerText = "Invalid Certificate ID!";
+  }
+</script>
    </body>
 
 </html>

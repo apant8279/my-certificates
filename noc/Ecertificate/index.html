@@ -14,7 +14,7 @@
      <script>
   const user = new URLSearchParams(window.location.search).get("user");
   if (user) {
-    document.getElementById("downloadLink").href = `noc/Ecertificate${user}.pdf`;
+    document.getElementById("downloadLink").href = `noc/Ecertificate/${user}.pdf`;
   } else {
     document.getElementById("downloadLink").innerText = "Invalid Certificate ID!";
   }

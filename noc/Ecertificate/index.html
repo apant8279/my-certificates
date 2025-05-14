@@ -12,7 +12,7 @@
      </center>
 
      <script>
-  const user = new URLSearchParams(window.location.search).get("q");
+  const user = new URLSearchParams(window.location.search).get("user");
   if (user) {
     document.getElementById("downloadLink").href = `${q}.pdf`;
   } else {

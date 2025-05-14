@@ -12,9 +12,9 @@
      </center>
 
      <script>
-  const user = new URLSearchParams(window.location.search).get("user");
-  if (user) {
-    document.getElementById("downloadLink").href = `${user}.pdf`;
+  const q = new URLSearchParams(window.location.search).get("q");
+  if (q) {
+    document.getElementById("downloadLink").href = `${q}.pdf`;
   } else {
     document.getElementById("downloadLink").innerText = "Invalid Certificate ID!";
   }

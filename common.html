@@ -1,1 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCS-604 Repeated Questions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        details > summary {
+            cursor: pointer;
+            padding: 1.25rem;
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: background-color 0.2s ease;
+        }
+        details > summary:hover {
+            background-color: #e5e7eb;
+        }
+        details[open] > summary {
+            background-color: #e5e7eb;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        details > div {
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+            border-top: 0;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            background-color: #ffffff;
+        }
+        .appearance-tag {
+            display: inline-block;
+            background-color: #e0e7ff;
+            color: #4338ca;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .question-block {
+            margin-bottom: 1rem;
+        }
+        .question-block h4 {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .question-block p, .question-block ul, .question-block ol {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+        .question-block ul, .question-block ol {
+            margin-left: 1.5rem;
+        }
+        .question-block ul {
+            list-style-type: disc;
+        }
+        .question-block ol {
+            list-style-type: decimal;
+        }
+        .question-block code {
+            font-family: monospace;
+            background-color: #f3f4f6;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        .question-block pre {
+            background-color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
 
+    <div class="max-w-4xl mx-auto p-4 md:p-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-blue-800">TCS-604: Common Exam Questions</h1>
+        <p class="text-center text-gray-600 mb-8">Here are the questions and topics that were repeated across the 2023, 2024, and 2025 exam papers.</p>
+
+        <!-- 1. Delay Calculation -->
+        <details class="mb-4">
+            <summary>Topic: Delay Calculation ($d_{prop}$ vs $d_{trans}$)</summary>
+            <div>
+                <div class="mb-4">
+                    <span class="appearance-tag">2023 - Q1.c</span>
+                    <span class="appearance-tag">2024 - Q1.c</span>
+                </div>
+                <div class="question-block">
+                    <h4>Question:</h4>
+                    <p>Consider two hosts A and B, connected by a single link of rate R bps. Suppose that the two hosts are separated by m meters, and suppose the propagation speed along the link is s meters/sec. Host A is to send a packet of size L bits to Host B.</p>
+                    <ol>
+                         <li>Express the propagation delay, $d_{prop}$, in terms of m and s.</li>
+                         <li>Determine the transmission time of the packet, $d_{trans}$, in terms of L and R.</li>
+                         <li>Suppose $s=2.5 \times 10^8$ m/s, $L=100$ bits, and $R=28$ Kbps. Find the distance m so that $d_{prop}$ equals $d_{trans}$.</li>
+                    </ol>
+                    
+                    <h4 class="mt-6">Consolidated Answer:</h4>
+                    <p><strong>1. Propagation Delay ($d_{prop}$):</strong></p>
+                    <p>This is the time it takes for the first bit to travel from the sender to the receiver. It's a function of distance and speed.</p>
+                    <p><code>$d_{prop}$ = distance / propagation speed = m / s</code></p>
+                    
+                    <p><strong>2. Transmission Time ($d_{trans}$):</strong></p>
+                    <p>This is the time it takes for the sender to push all the packet's bits onto the link. It's a function of packet size and bandwidth.</p>
+                    <p><code>$d_{trans}$ = packet size / bandwidth = L / R</code></p>
+                    
+                    <p><strong>3. Calculation:</strong></p>
+                    <p>We are given:</p>
+                    <ul>
+                        <li>Propagation speed (s) = $2.5 \times 10^8$ m/s</li>
+                        <li>Packet size (L) = 100 bits</li>
+                        <li>Bandwidth (R) = 28 Kbps = 28,000 bits/sec</li>
+                    </ul>
+                    <p>We need to find distance `m` where $d_{prop} = d_{trans}$.</p>
+                    
+                    <ol>
+                        <li><strong>Set the formulas equal:</strong>
+                            <p><code>m / s = L / R</code></p>
+                        </li>
+                        <li><strong>Solve for m:</strong>
+                            <p><code>m = (L * s) / R</code></p>
+                        </li>
+                        <li><strong>Substitute the values:</strong>
+                            <p><code>m = (100 bits * 2.5 \times 10^8 m/s) / 28,000 bits/s</code></p>
+                            <p><code>m = (2.5 \times 10^{10}) / (2.8 \times 10^4)</code></p>
+                            <p><code>m = (2.5 / 2.8) \times 10^6</code></p>
+                            <p><code>m \approx 0.892857 \times 10^6 \text{ meters}</code></p>
+                            <p><code>m \approx 892,857 \text{ meters}</code> (or 892.86 km)</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </details>
+
+        <!-- 2. Subnetting (192.168.10.0/28) -->
+        <details class="mb-4">
+            <summary>Topic: Subnetting (192.168.10.0/28)</summary>
+            <div>
+                <div class="mb-4">
+                    <span class="appearance-tag">2023 - Q3.c</span>
+                    <span class="appearance-tag">2024 - Q3.c</span>
+                </div>
+                <div class="question-block">
+                    <h4>Question:</h4>
+                    <p>Using the illustration, what would be the IP address of E0 if you were using the eighth subnet? The network ID is 192.168.10.0/28 and you need to use the last available IP address in the range. The zero subnet should not be considered valid for this question.</p>
+                    <p>Using the illustration from the previous question, what would be the IP address of S0 if you were using the first subnet? The network ID is 192.168.10.0/28 and you need to use the last available IP address in the range. Again, the zero subnet should not be considered valid for this question.</p>
+                    
+                    <h4 class="mt-6">Consolidated Answer:</h4>
+                    <p><strong>Network Analysis:</strong></p>
+                    <ul>
+                        <li>Network ID: <code>192.168.10.0/28</code></li>
+                        <li>Subnet Mask: <code>/28</code> is <code>255.255.255.240</code>.</li>
+                        <li>Host bits: $32 - 28 = 4$ host bits.</li>
+                        <li>Block Size: $2^4 = 16$. The subnets increment by 16 in the last octet (.0, .16, .32, .48, etc.).</li>
+                        <li>Hosts per subnet: $2^4 - 2 = 14$ usable hosts.</li>
+                        <li>"Zero subnet" (<code>192.168.10.0</code>) is invalid, so our first valid subnet is <code>192.168.10.16</code>.</li>
+                    </ul>
+
+                    <p><strong>A: IP of E0 (Eighth subnet, last available IP):</strong></p>
+                    <p>We list the *valid* subnets starting from .16:</p>
+                    <ol>
+                        <li>Subnet 1: <code>.16</code></li>
+                        <li>Subnet 2: <code>.32</code></li>
+                        <li>Subnet 3: <code>.48</code></li>
+                        <li>Subnet 4: <code>.64</code></li>
+                        <li>Subnet 5: <code>.80</code></li>
+                        <li>Subnet 6: <code>.96</code></li>
+                        <li>Subnet 7: <code>.112</code></li>
+                        <li><strong>Subnet 8: <code>.128</code></strong></li>
+                    </ol>
+                    <ul>
+                        <li>Network ID: <code>192.168.10.128</code></li>
+                        <li>Next Network ID: <code>.144</code></li>
+                        <li>Broadcast ID: <code>192.168.10.143</code> (one less than next network)</li>
+                        <li>Host Range: <code>.129</code> to <code>.142</code></li>
+                        <li>Last available IP: <strong>192.168.10.142</strong></li>
+                    </ul>
+                    
+                    <p><strong>B: IP of S0 (First subnet, last available IP):</strong></p>
+                    <ul>
+                        <li>First valid subnet (skipping .0) is <strong>.16</strong></li>
+                        <li>Network ID: <code>192.168.10.16</code></li>
+                        <li>Next Network ID: <code>.32</code></li>
+                        <li>Broadcast ID: <code>192.168.10.31</code></li>
+                        <li>Host Range: <code>.17</code> to <code>.30</code></li>
+                        <li>Last available IP: <strong>192.168.10.30</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </details>
+
+        <!-- 3. Checksum Calculation -->
+        <details class="mb-4">
+            <summary>Topic: Checksum Calculation</summary>
+            <div>
+                <div class="mb-4">
+                    <span class="appearance-tag">2023 - Q4.a</span>
+                    <span class="appearance-tag">2024 - Q4.a</span>
+                </div>
+                <div class="question-block">
+                    <h4>Question:</h4>
+                    <p>A sender wants to send 4 frames each of 8 bits to a receiver, where the frames are 11001100, 10101010, 11110000 and 11000011. Compute the checksum at sender's side.</p>
+                    <p>The receiver receives the data 11001100, 10101011, 11110000 and 11000011. Now compute the checksum at receiver's side. And check whether the data received is error free or not.</p>
+                    
+                    <h4 class="mt-6">Consolidated Answer:</h4>
+                    <p>We use 8-bit 1's complement arithmetic (add, and wrap any carry-out bit).</p>
+                    
+                    <p><strong>Sender Side Calculation:</strong></p>
+                    <pre>
+  11001100
++ 10101010
+----------
+1 01110110  -> Wrap carry: 01110110 + 1 = 01110111
+
+  01110111
++ 11110000
+----------
+1 01100111  -> Wrap carry: 01100111 + 1 = 01101000
+
+  01101000
++ 11000011
+----------
+1 00101011  -> Wrap carry: 00101011 + 1 = 00101100
+</pre>
+                    <p>Final Sum = <code>00101100</code>.</p>
+                    <p><strong>Checksum</strong> (1's complement of sum) = <strong><code>11010011</code></strong>. This is what the sender transmits.</p>
+                    
+                    <p><strong>Receiver Side Calculation:</strong></p>
+                    <p>The receiver adds all received data blocks *and* the received checksum.</p>
+                    <pre>
+  11001100  (Data 1)
++ 10101011  (Data 2 - Note the error)
+----------
+1 01110111  -> Wrap carry: 01110111 + 1 = 01111000
+
+  01111000
++ 11110000  (Data 3)
+----------
+1 01101000  -> Wrap carry: 01101000 + 1 = 01101001
+
+  01101001
++ 11000011  (Data 4)
+----------
+1 00101100  -> Wrap carry: 00101100 + 1 = 00101101
+
+  00101101  (Sum of received data)
++ 11010011  (Received checksum)
+----------
+1 00000000  -> Wrap carry: 00000000 + 1 = 00000001
+</pre>
+                    <p>Final Receiver Sum = <code>00000001</code>.</p>
+                    <p><strong>Conclusion:</strong></p>
+                    <p>For the data to be error-free, the 1's complement sum at the receiver must be all ones (<code>11111111</code>) or, if summing the checksum too, all zeros (<code>00000000</code>). Since the result is <code>00000001</code>, <strong>an error has been detected</strong>.</p>
+                </div>
+            </div>
+        </details>
+
+        <!-- 4. RDT Protocols -->
+        <details class="mb-4">
+            <summary>Topic: Reliable Data Transfer (Stop-and-Wait, GBN, SR)</summary>
+            <div>
+                <div class="mb-4">
+                    <span class="appearance-tag">2023 - Q4.c</span>
+                    <span class="appearance-tag">2024 - Q4.c</span>
+                    <span class="appearance-tag">2025 - Q4.b</span>
+                </div>
+                <div class="question-block">
+                    <h4>Question:</h4>
+                    <p>Explain the working functionality of Stop-and-wait, Go Back N, and Selective Repeat. What is the drawback of stop-and-wait protocol? How it can be solved?</p>
+                    
+                    <h4 class="mt-6">Consolidated Answer:</h4>
+                    <p><strong>Drawback of Stop-and-Wait:</strong></p>
+                    <p>The primary drawback of Stop-and-Wait is its extreme <strong>inefficiency</strong>. The sender sends one packet and then *stops* and *waits* for an ACK. The entire link is idle for the full Round Trip Time (RTT). This results in very low link utilization, especially on high-bandwidth or high-delay (long) links.</p>
+                    
+                    <p><strong>How it is Solved:</strong></p>
+                    <p>The problem is solved using <strong>pipelining</strong>. Pipelining allows the sender to send *multiple* packets (a "window" of N packets) before it needs to receive the ACK for the first packet. This keeps the "pipe" full of data and dramatically increases efficiency. Go-Back-N and Selective Repeat are the two main pipelined protocols.</p>
+
+                    <p><strong>Comparison of Pipelined Protocols:</strong></p>
+                    <ul>
+                        <li><strong>Go-Back-N (GBN):</strong>
+                            <ul>
+                                <li><strong>Working:</strong> Allows a sender window of size N. It uses *cumulative ACKs* (ACK `n` means `n` and all before it are received).</li>
+                                <li><strong>Error Handling:</strong> If packet `n` is lost, the receiver discards all subsequent packets (`n+1`, `n+2`...) even if they arrive correctly. When the sender's timer for packet `n` expires, it "goes back" and retransmits packet `n` *and all subsequent packets* in the window.</li>
+                                <li><strong>Complexity:</strong> Simple receiver (no buffering), complex sender.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Selective Repeat (SR):</strong>
+                            <ul>
+                                <li><strong>Working:</strong> Allows a sender window of size N. It uses *individual ACKs* for each packet.</li>
+                                <li><strong>Error Handling:</strong> If packet `n` is lost, the receiver ACKs subsequent packets (`n+1`, `n+2`...) and *buffers* them. The sender's timer for *only packet `n`* expires, and it retransmits *only packet `n`*. The receiver then delivers the buffered packets in order.</li>
+                                <li><strong>Complexity:</strong> Complex sender and complex receiver (must buffer, reorder).</li>
+                                <li><strong>Performance:</strong> The most efficient RDT protocol, as it minimizes retransmissions.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </details>
+
+        <!-- 5. Subnetting (Class C) -->
+        <details class="mb-4">
+            <summary>Topic: Subnetting (General Class C)</summary>
+            <div>
+                <div class="mb-4">
+                    <span class="appearance-tag">2023 - Q5.b</span>
+                    <span class="appearance-tag">2024 - Q5.b</span>
+                </div>
+                <div class="question-block">
+                    <h4>Question:</h4>
+                    <p>A: Suppose, we have a big single network having IP Address 200.1.2.0. Divide this network into 4 subnets.</p>
+                    <p>B: What is the subnetwork address for a host with the IP address 200.10.5.68/28?</p>
+                    
+                    <h4 class="mt-6">Consolidated Answer:</h4>
+                    <p><strong>A: Divide 200.1.2.0 (Class C, /24) into 4 subnets.</strong></p>
+                    <ul>
+                        <li>The default mask for <code>200.1.2.0</code> is <code>/24</code>.</li>
+                        <li>To get 4 subnets, we need to borrow subnet bits ($s$).</li>
+                        <li>Formula: $2^s \ge 4$. This means $s = 2$ bits.</li>
+                        <li>New subnet mask = Default mask + borrowed bits = $24 + 2 = 26$.</li>
+                        <li>The new mask is <strong>/26</strong>, or <code>255.255.255.192</code>.</li>
+                        <li>The block size for /26 is $256 - 192 = 64$.</li>
+                        <li>The 4 subnets are:
+                            <ol>
+                                <li><strong>200.1.2.0/26</strong></li>
+                                <li><strong>200.1.2.64/26</strong></li>
+                                <li><strong>200.1.2.128/26</strong></li>
+                                <li><strong>200.1.2.192/26</strong></li>
+                            </ol>
+                        </li>
+                    </ul>
+
+                    <p><strong>B: Subnetwork address for 200.10.5.68/28.</strong></p>
+                    <ul>
+                        <li>Host IP: <code>200.10.5.68</code></li>
+                        <li>Mask: <code>/28</code>, which is <code>255.255.255.240</code>.</li>
+                        <li>The block size for /28 is $256 - 240 = 16$.</li>
+                        <li>We need to find the multiple of 16 that is less than or equal to the host's octet (68).</li>
+                        <li>Multiples of 16: 0, 16, 32, 48, <strong>64</strong>, 80...</li>
+                        <li>The highest multiple less than or equal to 68 is 64.</li>
+                        <li>The subnetwork address is <strong>200.10.5.64</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </details>
+
+        <!-- 6. Common Protocols -->
+        <details class="mb-4">
+            <summary>Topic: Common Protocols (DHCP, NAT, ICMP)</summary>
+            <div>
+                <div class="mb-4">
+                    <span class="appearance-tag">2023 - Q5.c</span>
+                    <span class="appearance-tag">2024 - Q5.c</span>
+                    <span class="appearance-tag">2025 - Q5.b (NAT)</span>
+                </div>
+                <div class="question-block">
+                    <h4>Question:</h4>
+                    <p>Explain the working functionality of DHCP, Network Address Translation (NAT), and Internet Control Message Protocol (ICMP).</p>
+                    
+                    <h4 class="mt-6">Consolidated Answer:</h4>
+                    <p><strong>DHCP (Dynamic Host Configuration Protocol):</strong></p>
+                    <ul>
+                        <li><strong>Function:</strong> Automatically assigns IP addresses and other network configuration (like subnet mask, default gateway, and DNS server) to devices when they join a network.</li>
+                        <li><strong>Process (DORA):</strong>
+                            <ol>
+                                <li><strong>Discover:</strong> The client broadcasts a message ("Is there a DHCP server out there?").</li>
+                                <li><strong>Offer:</strong> A DHCP server replies with an "offer" of a specific IP address.</li>
+                                <li><strong>Request:</strong> The client broadcasts that it accepts the offered IP.</li>
+                                <li><strong>Acknowledge:</strong> The server confirms the lease and updates its records.</li>
+                            </ol>
+                        </li>
+                    </ul>
+
+                    <p><strong>NAT (Network Address Translation):</strong></p>
+                    <ul>
+                        <li><strong>Function:</strong> Allows multiple devices on a private network (e.g., <code>192.168.1.x</code>) to share a single, globally unique public IP address. This is essential for solving the IPv4 address shortage.</li>
+                        <li><strong>Process:</strong> The NAT router maintains a "translation table".
+                            <ul>
+                                <li><strong>Outbound:</strong> It rewrites the *source* private IP and port to its *own public* IP and a new port.</li>
+                                <li><strong>Inbound:</strong> When a reply comes back, it looks up the port in its table and rewrites the *destination* public IP and port back to the original *private* IP and port.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p><strong>ICMP (Internet Control Message Protocol):</strong></p>
+                    <ul>
+                        <li><strong>Function:</strong> A network-layer protocol used by hosts and routers to send error messages and operational information. It is a "control" protocol, not a "data" protocol.</li>
+                        <li><strong>Examples:</strong>
+                            <ul>
+                                <li><strong><code>ping</code></strong> uses ICMP Echo Request and Echo Reply messages to test connectivity.</li>
+                                <li><strong><code>traceroute</code></strong> uses ICMP Time Exceeded messages to map the route to a destination.</li>
+                                <li>A router sends an ICMP <strong>Destination Unreachable</strong> message if it can't find a route for a packet.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </details>
+        
+        <!-- 7. TCP Congestion Control -->
+        <details class="mb-4">
+            <summary>Topic: TCP Congestion & Flow Control</summary>
+            <div>
+                <div class="mb-4">
+                    <span class="appearance-tag">2024 - Q4.b</span>
+                    <span class="appearance-tag">2025 - Q5.a</span>
+                </div>
+                <div class="question-block">
+                    <h4>Question:</h4>
+                    <p>Discuss how TCP implements flow control and congestion control mechanisms. How many phases are there in TCP congestion control algorithm?</p>
+                    
+                    <h4 class="mt-6">Consolidated Answer:</h4>
+                    <p>These are two different mechanisms to "throttle" the sender, but for different reasons.</p>
+                            
+                    <p><strong>Flow Control (Protects the Receiver):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> To prevent the sender from sending data faster than the *receiver's application* can read it (i.e., overflowing the *receiver's buffer*).</li>
+                        <li><strong>Mechanism:</strong> The receiver advertises its available buffer space in every ACK it sends. This is the <strong>Receive Window (<code>rwnd</code>)</strong> field in the TCP header. The sender ensures its amount of un-ACKed data is always less than or equal to <code>rwnd</code>.</li>
+                    </ul>
+                    
+                    <p><strong>Congestion Control (Protects the Network):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> To prevent the sender from sending data faster than the *network* (i.e., routers) can handle, which causes packet loss.</li>
+                        <li><strong>Mechanism:</strong> The sender maintains a *second* window, the <strong>Congestion Window (<code>cwnd</code>)</strong>. The sender's rate is limited by <code>min(rwnd, cwnd)</code>.</li>
+                    </ul>
+                    <p><strong>Phases of Congestion Control:</strong></p>
+                    <ol>
+                        <li><strong>Slow Start:</strong> At the beginning, <code>cwnd</code> = 1 MSS. It grows *exponentially* (doubles every RTT). This happens until <code>cwnd</code> reaches the <strong>threshold (<code>ssthresh</code>)</strong>.</li>
+                        <li><strong>Congestion Avoidance:</strong> Once <code>cwnd</code> > <code>ssthresh</code>, growth slows to be *linear* (it adds 1 MSS per RTT). This probes for more bandwidth more gently.</li>
+                        <li><strong>Congestion Detection / Recovery:</strong> This is the reaction to packet loss.
+                            <ul>
+                                <li><strong>On Timeout (severe loss):</strong> <code>ssthresh</code> is set to <code>cwnd / 2</code>. <code>cwnd</code> is reset to 1, and it re-enters <strong>Slow Start</strong>.</li>
+                                <li><strong>On 3 Duplicate ACKs (mild loss):</strong> <code>ssthresh</code> is set to <code>cwnd / 2</code>. <code>cwnd</code> is also set to <code>ssthresh</code>. It skips Slow Start and enters <strong>Congestion Avoidance/Fast Recovery</strong>.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </details>
+
+    </div>
+</body>
+</html>
